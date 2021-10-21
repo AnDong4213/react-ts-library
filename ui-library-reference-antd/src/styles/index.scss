@@ -1,4 +1,11 @@
+// CSS @import 指令在每次调用时，都会创建一个额外的 HTTP 请求。但，Sass @import 指令将文件包含在 CSS 中，不需要额外的 HTTP 请求。
+
 @import 'variables';
 
-
 @import 'reboot';
+
+// @mixin 指令允许我们定义一个可以在整个样式表中重复使用的样式。 @include 指令可以将混入（mixin）引入到文档中。
+@import 'mixin';
+
+// button样式
+@import '../components/Button/style'
