@@ -5,8 +5,8 @@
 ```java
   web性能优化（WPO-web performance optimization ）对用户体验和业务指标的影响。
 
-  // question1：项目的首页是加载了一个视频作为背景动画。然后如果比较频繁的切换首页和其他页面的时候。就会导致浏览器黑屏，无法再点击。只能通过资源管理器关闭进程?
-  可以试一下visibility API，切换页面的时候把视频暂停，回来时再play.
+  question1：项目的首页是加载了一个视频作为背景动画。然后如果比较频繁的切换首页和其他页面的时候。就会导致浏览器黑屏，无法再点击。只能通过资源管理器关闭进程?
+  // 可以试一下visibility API，切换页面的时候把视频暂停，回来时再play.
   // https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
   // 页面可见性 API  对于节省资源和提高性能特别有用，它使页面在文档不可见时避免执行不必要的任务。
 ```
