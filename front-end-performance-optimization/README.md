@@ -25,6 +25,7 @@
 ```js
 // animation frame fired(动画帧激发)
 // recalculate style(重新计算样式)
+//  composite layers 复合层
 
 // 浏览器为了提高布局性能，会尽量的的把修改布局相关属性操作推迟。
 // 批量进行，把读的操作进行完，批量在进行写的操作。
@@ -67,3 +68,5 @@ window.onload = function () {
 #### 摘要
 
 - 为了提高绘制的效率，浏览器才有了复合层，把页面拆解成不同的图层。
+- 只有 translate 和 opacity 目前可以被硬件加速支持，可以避免重绘，结合 will-change 创建独立图层达到优化的结果。
+- transform:translateZ(0)和 will change 都会将元素提取单独图层，使用 GPU 加速。translateZ 以前是一个副作用，而 will-change 才是标准，原来可能还会支持更多的属性。

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--引入工具库-->
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
+    <title>Dereck's Backyard Sales!</title>
+    <script src="/libs/lodash.js"></script>
+    <!-- fastdom主要做读写的分离 -->
+    <script src="/libs/fastdom.min.js"></script>
+  </head>
+  <body>
+    <div id="main"></div>
+
+    <script>
+      // let doms1 = document.querySelectorAll(".MuiCardMedia-root");
+      let cards = document.getElementsByClassName("MuiCardMedia-root");
+
+      /* const update = () => {
+        // console.log(doms1); // 放到外边先声明，没有值。
+        // console.log(document.querySelectorAll(".MuiCardMedia-root")); // 有值
+        console.log(cards);
+        cards[0].style.width = "800px";
+      }; */
+
+      /* const update = (timestamp) => {
+        for (let i = 0; i < cards.length; i++) {
+          cards[i].style.width =
+            (Math.sin(cards[i].offsetTop + timestamp / 1000) + 1) * 500 + "px";
+        }
+        window.requestAnimationFrame(update);
+      }; */
+
+      const update = (timestamp) => {
+        for (let i = 0; i < cards.length; i++) {
+          fastdom.measure(() => {
+            //读取offsetTop值
+            let top = cards[i].offsetTop;
+            fastdom.mutate(() => {
+              cards[i].style.width =
+                (Math.sin(top + timestamp / 1000) + 1) * 500 + "px";
+            });
+          });
+        }
+        window.requestAnimationFrame(update);
+      };
+      // window.addEventListener("load", update);
+
+      // document.addEventListener("pointermove", (event) => {
+      //   console.log("Pointer moved", event.clientX);
+      // });
+    </script>
+  </body>
+</html>
