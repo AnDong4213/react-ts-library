@@ -52,9 +52,23 @@
       };
       // window.addEventListener("load", update);
 
-      // document.addEventListener("pointermove", (event) => {
-      //   console.log("Pointer moved", event.clientX);
-      // });
+      // ：3-6 高频事件防抖
+
+      function changeWidth(rand) {
+        for (let index = 0; index < cards.length; index++) {
+          cards[index].style.width = (Math.sin(rand / 1000) + 1) * 500 + "px";
+        }
+      }
+      let flag = false;
+      document.addEventListener("pointermove", (event) => {
+        // console.log("Pointer moved", event.clientX);
+        if (flag) return;
+        flag = true;
+        window.requestAnimationFrame(() => {
+          changeWidth(event.clientX);
+          flag = false;
+        });
+      });
     </script>
   </body>
 </html>

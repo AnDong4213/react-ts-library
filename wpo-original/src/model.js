@@ -43,8 +43,8 @@ const model = [
     name: `Amy的城堡纸盒-1`,
     image: `https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.jj20.com%2Fup%2Fallimg%2F711%2F120613113220%2F131206113220-3.jpg`,
     body: "全新, 隐蔽性好"
-  },
-  {
+  }
+  /* {
     name: "Baddy的饼干盒-1",
     image: `https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fm00%2F97%2F17%2Fed95cf41b0b69084e46221c4a51afd18.jpg`,
     body: "适合瘦身塑行"
@@ -78,7 +78,7 @@ const model = [
     name: "Lanzi的敞篷纸盒-3",
     image: `https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F1%2F58e72a887e640.jpg`,
     body: "超大空间，买就送鱼罐头"
-  }
+  } */
 ];
 
 export default model;

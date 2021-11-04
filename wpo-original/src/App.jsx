@@ -3,6 +3,7 @@ import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./Header.jsx";
 import Home from "./Home.jsx";
+import Test from "./test";
 
 const primary = "#30929b";
 
@@ -39,6 +40,7 @@ class App extends React.Component {
           <div>
             {/* <Header /> */}
             <Route exact path="/" component={Home} />
+            <Route path="/test" component={Test} />
           </div>
         </MuiThemeProvider>
       </Router>
