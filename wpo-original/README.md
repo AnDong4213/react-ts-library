@@ -63,7 +63,7 @@ window.onload = function () {
 // 样式重计算越少越好，每次样式重计算影响的元素和样式的复杂度越小越好。
 ```
 
-### `3-4 复合线程与图层【深入渲染流水线的最后一站】`
+### `3-4 复合线程与图层`
 
 #### 摘要
 
@@ -71,3 +71,9 @@ window.onload = function () {
 - 只有 translate 和 opacity 目前可以被硬件加速支持，可以避免重绘，结合 will-change 创建独立图层达到优化的结果。
 - transform:translateZ(0)和 will change 都会将元素提取单独图层，使用 GPU 加速。translateZ 以前是一个副作用，而 will-change 才是标准，原来可能还会支持更多的属性。
 - requestAnimationFrame 主要就是用来优化执行过长的视觉任务的刷新同步问题的，尤其是动画。利用它可以将任务的执行与帧对齐，与刷新频率尽量同步。虽然动画还是会受影响，但和掉帧(Dropped Frame)的卡顿比要好很多
+
+### `3-7 React时间调度实现`
+
+- 16 版本 fiber 的实现机制，将 dom 的修改，一个批量的任务拆解成许多的小任务，然后通过时间调度去进行完成，在既保证高效率的同时，还能够保证用户的交互有足够的空闲时间。
+- React 时间调度实现方法是借用 requestAnimationFrame。实现思路：模拟 requestIdleCallback，希望一帧 16 毫秒的时间内，如果还有空余的时间，16 毫秒没用完，让它做一些其他的事情，但 requestIdleCallback 的浏览器支持不是很好，兼容性并不是很好，于是通过 requestAnimationFrame 模拟实现了 requestIdleCallback。
+- 在一帧的关键渲染周期之内，requestIdleCallback 在一帧之内如果所有事情做完了还有剩余的时间，可以做一些其他的事情。requestAnimationFrame 是在 Layout 和 paint 之前触发的，一帧要开始渲染之前触发的。requestIdleCallback 是在渲染之后触发的，一帧已经画完了还有时间，可以去做一些额外的东西。

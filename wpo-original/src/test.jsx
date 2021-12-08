@@ -62,6 +62,8 @@ class Test extends React.Component {
     window.requestAnimationFrame(step);
   }
 
+  handleFunc1 = () => {};
+
   render() {
     const { classes } = this.props;
 

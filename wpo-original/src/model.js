@@ -18,8 +18,8 @@ const model = [
     name: "Lanzi的敞篷纸盒",
     image: `https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1208176849,1584967837&fm=26&gp=0.jpg`,
     body: "超大空间，买就送鱼罐头"
-  },
-  {
+  }
+  /* {
     name: `Amy的城堡纸盒-2`,
     image: `https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fabc.2008php.com%2F2016_Website_appreciate%2F2016-04-06%2F20160406003421.jpg`,
     body: "全新, 隐蔽性好"
@@ -43,8 +43,8 @@ const model = [
     name: `Amy的城堡纸盒-1`,
     image: `https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.jj20.com%2Fup%2Fallimg%2F711%2F120613113220%2F131206113220-3.jpg`,
     body: "全新, 隐蔽性好"
-  }
-  /* {
+  },
+  {
     name: "Baddy的饼干盒-1",
     image: `https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fm00%2F97%2F17%2Fed95cf41b0b69084e46221c4a51afd18.jpg`,
     body: "适合瘦身塑行"

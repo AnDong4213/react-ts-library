@@ -1,6 +1,6 @@
 import React from "react";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Header from "./Header.jsx";
 import Home from "./Home.jsx";
 import Test from "./test";
@@ -35,15 +35,20 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
-        <MuiThemeProvider theme={theme}>
+      <div className="app-router" style={{ margin: "10px" }}>
+        <Router>
           <div>
-            {/* <Header /> */}
-            <Route exact path="/" component={Home} />
-            <Route path="/test" component={Test} />
+            <Link to="/test">Test</Link>
           </div>
-        </MuiThemeProvider>
-      </Router>
+          <MuiThemeProvider theme={theme}>
+            <div>
+              {/* <Header /> */}
+              <Route exact path="/" component={Home} />
+              <Route path="/test" component={Test} />
+            </div>
+          </MuiThemeProvider>
+        </Router>
+      </div>
     );
   }
 }
