@@ -1,5 +1,6 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
+import test from "./test";
 
 const styles = {
   root: {
@@ -33,16 +34,17 @@ class Test extends React.Component {
     // console.log(this.props);
     // console.log(this.p1Tag);
     // console.log(this.p2Tag);
+    console.log(test(11, 2));
 
     let element = this.p2Tag.current,
       start,
       i = 0;
 
     function step(timestamp) {
-      console.log("timestamp", timestamp, i++);
+      // console.log("timestamp", timestamp, i++);
       if (start === undefined) start = timestamp;
       const elapsed = timestamp - start;
-      console.log("elapsed", elapsed);
+      // console.log("elapsed", elapsed);
 
       //这里使用`Math.min()`确保元素刚好停在200px的位置。
       element.style.transform =
@@ -55,6 +57,13 @@ class Test extends React.Component {
     }
 
     window.requestAnimationFrame(step);
+
+    /*  const pList = document.querySelectorAll("p");
+    console.log(pList);
+    console.log(Array.prototype.slice.call(pList));
+    console.log(Array.from(pList)); // 尽量使用Array代替array-like对象
+    console.log([...pList]); // 使用扩展运算符 */
+    // console.log([1, 2, 3, 4].findLast((el) => el % 2 === 0));  // 还未能使用
   }
 
   handleFunc1 = () => {};
@@ -76,6 +85,11 @@ class Test extends React.Component {
         <p ref={this.p2Tag} className={classes.p2}>
           乐乐-p2
         </p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
       </div>
     );
   }

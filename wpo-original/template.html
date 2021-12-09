@@ -10,7 +10,7 @@
         margin: 0;
       }
     </style>
-    <title>Dereck's Backyard Sales!</title>
+    <title>前端性能优化</title>
     <script src="/libs/lodash.js"></script>
     <!-- fastdom主要做读写的分离 -->
     <script src="/libs/fastdom.min.js"></script>
@@ -53,7 +53,6 @@
       // window.addEventListener("load", update);
 
       // ：3-6 高频事件防抖
-
       function changeWidth(rand) {
         for (let index = 0; index < cards.length; index++) {
           cards[index].style.width = (Math.sin(rand / 1000) + 1) * 500 + "px";
