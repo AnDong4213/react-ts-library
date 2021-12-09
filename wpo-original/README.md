@@ -77,3 +77,15 @@ window.onload = function () {
 - 16 版本 fiber 的实现机制，将 dom 的修改，一个批量的任务拆解成许多的小任务，然后通过时间调度去进行完成，在既保证高效率的同时，还能够保证用户的交互有足够的空闲时间。
 - React 时间调度实现方法是借用 requestAnimationFrame。实现思路：模拟 requestIdleCallback，希望一帧 16 毫秒的时间内，如果还有空余的时间，16 毫秒没用完，让它做一些其他的事情，但 requestIdleCallback 的浏览器支持不是很好，兼容性并不是很好，于是通过 requestAnimationFrame 模拟实现了 requestIdleCallback。
 - 在一帧的关键渲染周期之内，requestIdleCallback 在一帧之内如果所有事情做完了还有剩余的时间，可以做一些其他的事情。requestAnimationFrame 是在 Layout 和 paint 之前触发的，一帧要开始渲染之前触发的。requestIdleCallback 是在渲染之后触发的，一帧已经画完了还有时间，可以去做一些额外的东西。
+- window.requestAnimationFrame() 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行。
+
+## `4-代码优化`
+
+### `4-1 JS开销和如何缩短解析时间`
+
+- 白屏时间通常指的是从 url 输入到页面内容加载出来之前的时间。常用的参考指标是 FCP: first contentful paint.
+- 行间脚本(inline script)，也叫内嵌脚本，指的是直接写在 html 里的 javascript，它们会造成解析阻塞，应该避免较多较长的行间脚本。
+
+### `4-2 V8引擎`
+
+- 懒解析不是跳过什么都不做，而是进行预解析，只处理作用域等基本信息，知道有这个函数，但不会完全解析它的具体内容逻辑。

@@ -1,10 +1,5 @@
 import React from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
-import { Link } from "react-router-dom";
 
 const styles = {
   root: {
@@ -37,7 +32,7 @@ class Test extends React.Component {
   componentDidMount() {
     // console.log(this.props);
     // console.log(this.p1Tag);
-    // console.log(this.p2Tag.current);
+    // console.log(this.p2Tag);
 
     let element = this.p2Tag.current,
       start,
@@ -66,6 +61,7 @@ class Test extends React.Component {
 
   render() {
     const { classes } = this.props;
+    // console.log(classes);
 
     return (
       <div className={`${classes.root} ${classes.brand}`}>
