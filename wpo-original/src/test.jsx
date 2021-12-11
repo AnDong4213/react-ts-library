@@ -32,7 +32,11 @@ class Test extends React.Component {
 
   componentDidMount() {
     // console.log(this.props);
-    // console.log(this.p1Tag);
+    // this.p1Tag.className = "nnnnn";
+    console.log(this.p1Tag.className.split(" "));
+    console.log([...this.p1Tag.classList]);
+    // console.log(this.p1Tag.classList.contains("Test-p1-4"));
+    // this.p1Tag.classList.remove("Test-p1-4");
     // console.log(this.p2Tag);
     console.log(test(11, 2));
 

@@ -101,3 +101,4 @@ window.onload = function () {
 - 如果要验证硬件加速功能是否启用或被禁用，可以在 Chrome 地址栏中执行 chrome://gpu/，
 - contain 和 BFC 有什么区别呢？
 - 举个例子，有时因为浮动的子元素脱离文档流导致布局的问题，出现父元素包不住子元素。最常见的就是在父元素上用 overflow: auto;来搞定。其实这就是创建了一个 BFC 来解决的。BFC 是一个块级布局解决方案的概念，它的实现有很多方式，contain 也是其中一种。BFC 就是要让父元素能够按块级布局的方式包含(contain)住子元素的特性---浮动，margin 等
+- 块格式化上下文（Block Formatting Context，BFC） 是 Web 页面的可视 CSS 渲染的一部分，是块盒子的布局过程发生的区域，也是浮动元素与其他元素交互的区域。

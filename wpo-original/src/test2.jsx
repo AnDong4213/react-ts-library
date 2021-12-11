@@ -1,5 +1,6 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
+import "./test2.css";
 
 const styles = {
   root: {
@@ -21,7 +22,10 @@ class Test extends React.Component {
 
     return (
       <div className={`${classes.root}`}>
-        <p></p>
+        <div className="blue"></div>
+        <div className="red-outer">
+          <div className="red-inner">red inner</div>
+        </div>
       </div>
     );
   }
