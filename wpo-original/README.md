@@ -101,4 +101,22 @@ window.onload = function () {
 - 如果要验证硬件加速功能是否启用或被禁用，可以在 Chrome 地址栏中执行 chrome://gpu/，
 - contain 和 BFC 有什么区别呢？
 - 举个例子，有时因为浮动的子元素脱离文档流导致布局的问题，出现父元素包不住子元素。最常见的就是在父元素上用 overflow: auto;来搞定。其实这就是创建了一个 BFC 来解决的。BFC 是一个块级布局解决方案的概念，它的实现有很多方式，contain 也是其中一种。BFC 就是要让父元素能够按块级布局的方式包含(contain)住子元素的特性---浮动，margin 等
-- 块格式化上下文（Block Formatting Context，BFC） 是 Web 页面的可视 CSS 渲染的一部分，是块盒子的布局过程发生的区域，也是浮动元素与其他元素交互的区域。
+- 块格式化上下文（Block Formatting Context，BFC） 是 Web 页面的可视 CSS 渲染的一部分，是块盒子布局过程发生的区域，也是浮动元素与其他元素交互的区域。
+
+#### `创建块格式化上下文的常用方式`
+
+- 浮动元素（元素的 float 不是 none）
+- 绝对定位元素（元素的 position 为 absolute 或 fixed）
+- 行内块元素（元素的 display 为 inline-block）
+- overflow 计算值(Computed)不为 visible 的块元素 ‘hidden scroll auto’
+- display 值为 flow-root 的元素
+- 弹性元素（display 为 flex 或 inline-flex 元素的直接子元素）
+- 网格元素（display 为 grid 或 inline-grid 元素的直接子元素）
+- contain 值为 layout、content 或 paint 的元素
+
+```java
+  // 块格式化上下文包含创建它的元素内部的所有内容.
+  // 块格式化上下文对浮动定位（参见 float）与清除浮动（参见 clear）都很重要。浮动定位和清除浮动时只会应用于同一个BFC内的元素。浮动不会影响其它BFC中元素的布局，而清除浮动只能清除同一BFC中在它前面的元素的浮动。外边距折叠（Margin collapsing）也只会发生在属于同一BFC的块级元素之间。
+
+  // 用overflow创建BFC，可能会发现一些不想要的问题，比如滚动条或者一些剪切的阴影。一个新的 display 属性的值，它可以创建无副作用的 BFC。在父级块中使用 display: flow-root 可以创建新的 BFC。
+```
